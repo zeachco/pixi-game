@@ -6,14 +6,20 @@ const CONTAINER_ID = 'canvas'
 
 export class PixiApp extends React.Component {
     componentDidMount() {
-        this.renderer = PIXI.autoDetectRenderer(this.props.width, this.props.height)
+        this.renderer = PIXI.autoDetectRenderer(this.props.width, this.props.height, {
+            antialias: false,
+            transparent: false,
+            resolution: 1
+        })
         this.stage = new PIXI.Container();
 
         document
             .getElementById(CONTAINER_ID)
             .append(this.renderer.view)
 
-        this.props.game(this)
+        this
+            .props
+            .game(this)
     }
 
     render() {
