@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js'
-import CatImage from './images/cat.png'
+import CatImage from './images/triangle.png'
 
 export const senario1 = ({renderer, stage}) => {
     renderer.autoResize = true
@@ -30,14 +30,14 @@ export const senario1 = ({renderer, stage}) => {
         renderer.render(stage);
     }
 
-    function matchWindowSize() {
-        renderer.view.style.cssText = `
-    position: absolute;
-    display: block;
-    left: 0;
-    top: 0;
-    border: none;
-    `
-        renderer.resize(window.innerWidth, window.innerHeight);
-    }
+    // function matchWindowSize() {
+    //     renderer.view.style.cssText = `
+    // position: absolute;
+    // display: block;
+    // left: 0;
+    // top: 0;
+    // border: none;
+    // `
+    //     renderer.resize(window.innerWidth, window.innerHeight);
+    // }
 };
