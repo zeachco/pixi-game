@@ -1,3 +1,3 @@
-export const senario1 = ({pixi, stage}) => {
-    console.log(pixi.VERSION)
+export const senario1 = ({renderer, stage}) => {
+    renderer.render(stage)
 };

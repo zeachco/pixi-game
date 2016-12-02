@@ -13,9 +13,7 @@ export class PixiApp extends React.Component {
             .getElementById(CONTAINER_ID)
             .append(this.renderer.view)
 
-        this
-            .renderer
-            .render(this.stage);
+        this.props.game(this)
     }
 
     render() {
