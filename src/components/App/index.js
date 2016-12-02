@@ -10,7 +10,7 @@ export  class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome to React</h2>
+          <h2>Welcome to <i>Pixi - React</i></h2>
         </div>
         <PixiApp width={512} height={512} game={senario1}/>
       </div>

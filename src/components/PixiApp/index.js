@@ -18,9 +18,7 @@ export class PixiApp extends React.Component {
 
     render() {
         return (
-            <div id={CONTAINER_ID}>
-                <h1>Game</h1>
-            </div>
+            <div id={CONTAINER_ID}></div>
         )
     }
 }
