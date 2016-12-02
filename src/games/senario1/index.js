@@ -15,18 +15,17 @@ export const senario1 = ({renderer, stage}) => {
     stage.addChild(sprite);
 
     function game() {
-        sprite.anchor.x = 0.5;
-        sprite.anchor.y = 0.5;
+        sprite.anchor.x = .5;
+        sprite.anchor.y = .75;
         sprite.position.x = renderer.width / 2;
         sprite.position.y = renderer.height / 2;
         sprite.rotation += 0.1;
     }
 
-    animate();
+    animate()
     function animate() {
         requestAnimationFrame(animate);
-        game()
-        // just for fun, let's rotate mr rabbit a little render the container
+        game();
         renderer.render(stage);
     }
 
