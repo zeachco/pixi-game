@@ -3,8 +3,7 @@ import * as PIXI from 'pixi.js'
 
 export class PixiApp extends React.Component {
     componentDidMount() {
-
-        this.renderer = PIXI.autoDetectRenderer(256, 256)
+        this.renderer = PIXI.autoDetectRenderer(this.props.width, this.props.height)
         this.stage = new PIXI.Container();
 
         document
