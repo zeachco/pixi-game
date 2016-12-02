@@ -1,22 +1,26 @@
 import React from 'react'
+import * as PIXI from 'pixi.js'
 
-export const PixiApp = props => (
-    <div>ok</div>
-)
+export class PixiApp extends React.Component {
+    componentDidMount() {
 
+        this.renderer = PIXI.autoDetectRenderer(256, 256)
+        this.stage = new PIXI.Container();
 
+        document
+            .getElementById('canvas')
+            .append(this.renderer.view)
 
-// import * as PIXI from 'pixi.js'
+        this
+            .renderer
+            .render(this.stage);
+    }
 
-// var renderer = PIXI.autoDetectRenderer(800, 600);
-
-// //Add the canvas to the HTML document
-// document
-//   .body
-//   .appendChild(renderer.view);
-
-// //Create a container object called the `stage`
-// var stage = new PIXI.Container();
-
-// //Tell the `renderer` to `render` the `stage`
-// renderer.render(stage);
+    render() {
+        return (
+            <div id="canvas">
+                <h1>Game</h1>
+            </div>
+        )
+    }
+}
