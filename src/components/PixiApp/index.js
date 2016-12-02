@@ -1,5 +1,8 @@
+import './style.css'
 import React from 'react'
 import * as PIXI from 'pixi.js'
+
+const CONTAINER_ID = 'canvas'
 
 export class PixiApp extends React.Component {
     componentDidMount() {
@@ -7,7 +10,7 @@ export class PixiApp extends React.Component {
         this.stage = new PIXI.Container();
 
         document
-            .getElementById('canvas')
+            .getElementById(CONTAINER_ID)
             .append(this.renderer.view)
 
         this
@@ -17,7 +20,7 @@ export class PixiApp extends React.Component {
 
     render() {
         return (
-            <div id="canvas">
+            <div id={CONTAINER_ID}>
                 <h1>Game</h1>
             </div>
         )

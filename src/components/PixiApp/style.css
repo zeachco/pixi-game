@@ -1,0 +1,7 @@
+#canvas {
+    padding: 5%;
+}
+
+#canvas canvas {
+    width: 100%;
+}

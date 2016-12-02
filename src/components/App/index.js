@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {PixiApp} from '..'
+import {senario1} from '../../games'
 
 export  class App extends Component {
   render() {
@@ -11,7 +12,7 @@ export  class App extends Component {
           <img src={logo} className="App-logo" alt="logo"/>
           <h2>Welcome to React</h2>
         </div>
-        <PixiApp width={512} height={512}/>
+        <PixiApp width={512} height={512} game={senario1}/>
       </div>
     );
   }
