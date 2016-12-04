@@ -4,21 +4,42 @@ const WebSocketServer = require('ws').Server;
 const wss = new WebSocketServer({server: server});
 const express = require('express');
 const app = express();
-const config = require('../config/server');
+const config = require('../shared/server');
+const UserConnection = require('../shared/UserConnection');
 
 app.use(express.static('build'));
 
-wss.on('connection', function connection(ws) {
-    const location = url.parse(ws.upgradeReq.url, true);
-    ws.on('message', function incoming(message) {
-        console.log('received: %s', message);
-    });
-    ws.send('something');
+const VERBS = {
+    SET_NAME: function (name) {
+        this.name = name;
+    },
+    SET_POS: function (x, y) {
+        this.x = x;
+        this.y = y;
+        UserConnection.broadcast(`PLACE_USER ${this.name} ${x} ${y}`);
+    },
+    GET_INFO: function (name) {
+        this
+            .ws
+            .send(this.name)
+    }
+};
 
-    setInterval(() => {
-        ws.send(''+Date.now());
-    }, 1000);
-});
+wss.on('connection', registerNewConnection);
+
+function registerNewConnection(websocketHandler) {
+    const user = new UserConnection({websocketHandler});
+    websocketHandler.on('message', digestMessage.bind(user));
+
+    function digestMessage(message) {
+        console.log(message);
+        const args = message.split(' ');
+        const verb = args.splice(0, 1);
+        VERBS[verb].call(this, ...args);
+    }
+
+    console.log('users', UserConnection.ALL.length)
+}
 
 server.on('request', app);
 server.listen(config.port, function () {

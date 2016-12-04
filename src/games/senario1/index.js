@@ -5,7 +5,7 @@ import './socket'
 export const senario1 = ({renderer, stage}) => {
     renderer.autoResize = true
 
-    // matchWindowSize(); window.addEventListener('resize', matchWindowSize);
+    matchWindowSize(); window.addEventListener('resize', matchWindowSize);
 
     renderer.backgroundColor = 0x061639
 

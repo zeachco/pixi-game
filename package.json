@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "postinstall": "npm run build",
-    "server": "nodemon server/ --watch server/ config/",
+    "server": "nodemon server/ --watch server/ shared/",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
